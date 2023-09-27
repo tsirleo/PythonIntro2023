@@ -1,0 +1,1 @@
+print(list(map(lambda x: 'No' if len(x) == 0 else min(x), [list(map(lambda x: x[0], filter(lambda x: x[1][0] == "".join(x[1][1][i::x[0]] for i in range(x[0])), zip(range(1, 2223), [(input(), input()), ] * 2222)))), ]))[0])
