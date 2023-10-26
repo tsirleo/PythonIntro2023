@@ -1,5 +1,5 @@
-def joinseq(*iter_args):
-    iter_args = [iter(seq) for seq in iter_args]
+def joinseq(*args):
+    iter_args = [iter(seq) for seq in args]
     first_chars = [next(_iter, -1) for _iter in iter_args]
     not_none_chars = [char for char in first_chars if char != -1]
     while len(not_none_chars):
