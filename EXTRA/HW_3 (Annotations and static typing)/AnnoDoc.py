@@ -1,3 +1,6 @@
+import inspect
+
+
 def annodoc(obj):
     if isinstance(obj, type):
         doc_lines = [f"{obj.__name__}:"]
@@ -28,6 +31,10 @@ def annodoc(obj):
                     doc_lines.append(f"Variable {name}: {value}")
 
         obj.__doc__ = "\n".join(doc_lines)
+
+        for attr_name, attr_value in obj.__dict__.items():
+            if hasattr(attr_value, "__annotations__"):
+                annodoc(attr_value)
 
         return obj
 
